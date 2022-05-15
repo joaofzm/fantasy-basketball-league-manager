@@ -1,4 +1,4 @@
-package br.com.joaofzm15.fantasybasketball;
+package br.com.joaofzm15.fantasybasketball.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
