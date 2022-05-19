@@ -1,8 +1,6 @@
 package br.com.joaofzm15.fantasybasketball.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -17,6 +15,7 @@ public class Team implements Serializable {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String name;
 		
 	public Team() {
@@ -44,6 +43,10 @@ public class Team implements Serializable {
 		this.name = name;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -60,7 +63,8 @@ public class Team implements Serializable {
 		Team other = (Team) obj;
 		return Objects.equals(id, other.id);
 	}
-	
+
+
 	
 	
 	
