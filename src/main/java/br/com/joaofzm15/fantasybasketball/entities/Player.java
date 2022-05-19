@@ -1,7 +1,6 @@
 package br.com.joaofzm15.fantasybasketball.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -9,28 +8,36 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
-public class Team implements Serializable {
+@Table(name="Player")
+public class Player implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
 	private String name;
 	
-	@OneToMany(mappedBy = "team")
-	private List<Player> players = new ArrayList<>();
-		
-	public Team() {
+	@ManyToOne
+	@JoinColumn(name = "team_id")
+	private Team team;
+	
+	@OneToMany(mappedBy = "player")
+	private List<Game> games;
+	
+	public Player() {
 		
 	}
-
-	public Team(Long id, String name) {
+	
+	public Player(Long id, String name, Team team) {
 		this.id = id;
 		this.name = name;
+		this.team = team;
 	}
 
 	public Long getId() {
@@ -49,8 +56,16 @@ public class Team implements Serializable {
 		this.name = name;
 	}
 
-	public List<Player> getPlayers(){
-		return players;
+	public Team getTeam() {
+		return team;
+	}
+
+	public void setTeam(Team team) {
+		this.team = team;
+	}
+	
+	public List<Game> getGames(){
+		return games;
 	}
 
 	@Override
@@ -66,12 +81,14 @@ public class Team implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Team other = (Team) obj;
+		Player other = (Player) obj;
 		return Objects.equals(id, other.id);
 	}
+	
+	
+	
+	
+	
+	
 
-
-	
-	
-	
 }
