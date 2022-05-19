@@ -13,7 +13,7 @@ public class TeamResource {
 
 	@GetMapping
 	public ResponseEntity<Team> findAll(){
-		Team t = new Team(2L, "Petro");
+		Team t = new Team(1L, "Clippers");
 		return ResponseEntity.ok().body(t);
 	}
 }
