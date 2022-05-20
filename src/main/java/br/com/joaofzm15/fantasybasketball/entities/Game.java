@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "Game")
 public class Game implements Serializable {
@@ -29,7 +31,22 @@ public class Game implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "player_id")
+	@JsonIgnore
 	private Player player;
+	
+	public Game() {
+		
+	}
+
+	public Game(Long id, int points, int assists, int rebounds, int steals, int blocks, Player player) {
+		this.id = id;
+		this.points = points;
+		this.assists = assists;
+		this.rebounds = rebounds;
+		this.steals = steals;
+		this.blocks = blocks;
+		this.player = player;
+	}
 
 	public Long getId() {
 		return id;

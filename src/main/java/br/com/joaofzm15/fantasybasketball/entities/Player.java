@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="Player")
 public class Player implements Serializable {
@@ -25,6 +27,7 @@ public class Player implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "team_id")
+	@JsonIgnore
 	private Team team;
 	
 	@OneToMany(mappedBy = "player")
