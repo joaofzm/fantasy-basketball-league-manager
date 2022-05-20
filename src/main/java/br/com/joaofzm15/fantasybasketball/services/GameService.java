@@ -23,4 +23,8 @@ public class GameService {
 		Optional<Game> obj = repository.findById(id);
 		return obj.get();
 	}
+	
+	public Game insert(Game obj) {
+		return repository.save(obj);
+	}
 }

@@ -120,10 +120,4 @@ public class Game implements Serializable {
 		Game other = (Game) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
-	
-	
-	
-
 }

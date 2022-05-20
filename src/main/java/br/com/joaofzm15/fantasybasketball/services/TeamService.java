@@ -23,4 +23,8 @@ public class TeamService {
 		Optional<Team> obj = repository.findById(id);
 		return obj.get();
 	}
+	
+	public Team insert(Team obj) {
+		return repository.save(obj);
+	}
 }
