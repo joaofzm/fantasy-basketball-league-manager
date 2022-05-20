@@ -31,4 +31,14 @@ public class TeamService {
 	public void delete(Long id) {
 		repository.deleteById(id);
 	}
+
+	public Team update (Long id, Team obj) {
+		Team entity = repository.getById(id);
+		updateData(entity, obj);
+		return repository.save(entity);
+	}
+
+	private void updateData(Team entity, Team obj) {
+		entity.setName(obj.getName());
+	}
 }

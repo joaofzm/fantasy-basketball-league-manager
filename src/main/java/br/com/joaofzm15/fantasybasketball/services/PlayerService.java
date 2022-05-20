@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.joaofzm15.fantasybasketball.entities.Player;
+import br.com.joaofzm15.fantasybasketball.entities.Team;
 import br.com.joaofzm15.fantasybasketball.entities.Player;
 import br.com.joaofzm15.fantasybasketball.respositories.PlayerRepository;
 
@@ -31,5 +32,15 @@ public class PlayerService {
 	
 	public void delete(Long id) {
 		repository.deleteById(id);
+	}
+	
+	public Player update (Long id, Player obj) {
+		Player entity = repository.getById(id);
+		updateData(entity, obj);
+		return repository.save(entity);
+	}
+
+	private void updateData(Player entity, Player obj) {
+		entity.setName(obj.getName());
 	}
 }
