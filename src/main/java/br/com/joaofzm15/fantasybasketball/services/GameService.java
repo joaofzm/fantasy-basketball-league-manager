@@ -3,6 +3,8 @@ package br.com.joaofzm15.fantasybasketball.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -44,9 +46,13 @@ public class GameService {
 	}
 	
 	public Game update (Long id, Game obj) {
-		Game entity = repository.getById(id);
-		updateData(entity, obj);
-		return repository.save(entity);
+		try {
+			Game entity = repository.getById(id);
+			updateData(entity, obj);
+			return repository.save(entity);
+		} catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException(id);
+		}
 	}
 
 	private void updateData(Game entity, Game obj) {
