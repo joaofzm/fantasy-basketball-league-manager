@@ -1,0 +1,15 @@
+body {
+    background-image: linear-gradient(to right, rgb(0, 27, 116) , rgb(56, 0, 0));
+}
+
+.page_title {
+    text-align: center;
+    font-size: 50px;
+    color: white;
+}
+
+.button {
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}

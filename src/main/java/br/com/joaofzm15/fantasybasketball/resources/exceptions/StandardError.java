@@ -17,7 +17,6 @@ public class StandardError implements Serializable{
 	}
 
 	public StandardError(Instant timestamp, Integer status, String errorDescription, String message, String path) {
-//		@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
 		this.timestamp = timestamp;
 		this.statusNumber = status;
 		this.errorDescription = errorDescription;
