@@ -51,7 +51,7 @@ public class GameResource {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@PutMapping(value = "{/id}")
+	@PutMapping(value = "/{id}")
 	public ResponseEntity<Game> update(@PathVariable Long id, @RequestBody Game obj){
 		obj = service.update(id, obj);
 		return ResponseEntity.ok().body(obj);

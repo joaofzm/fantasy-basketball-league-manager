@@ -51,7 +51,7 @@ public class PlayerResource {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@PutMapping(value = "{/id}")
+	@PutMapping(value = "/{id}")
 	public ResponseEntity<Player> update(@PathVariable Long id, @RequestBody Player obj){
 		obj = service.update(id, obj);
 		return ResponseEntity.ok().body(obj);

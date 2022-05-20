@@ -50,7 +50,7 @@ public class TeamResource {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@PutMapping(value = "{/id}")
+	@PutMapping(value = "/{id}")
 	public ResponseEntity<Team> update(@PathVariable Long id, @RequestBody Team obj){
 		obj = service.update(id, obj);
 		return ResponseEntity.ok().body(obj);
