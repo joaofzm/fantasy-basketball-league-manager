@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.joaofzm15.fantasybasketball.entities.Team;
 import br.com.joaofzm15.fantasybasketball.respositories.TeamRepository;
+import br.com.joaofzm15.fantasybasketball.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class TeamService {
@@ -21,7 +22,7 @@ public class TeamService {
 	
 	public Team findById(Long id) {
 		Optional<Team> obj = repository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
 	public Team insert(Team obj) {

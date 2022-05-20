@@ -10,6 +10,7 @@ import br.com.joaofzm15.fantasybasketball.entities.Player;
 import br.com.joaofzm15.fantasybasketball.entities.Team;
 import br.com.joaofzm15.fantasybasketball.entities.Player;
 import br.com.joaofzm15.fantasybasketball.respositories.PlayerRepository;
+import br.com.joaofzm15.fantasybasketball.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class PlayerService {
@@ -23,7 +24,7 @@ public class PlayerService {
 	
 	public Player findById(Long id) {
 		Optional<Player> obj = repository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
 	public Player insert(Player obj) {

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import br.com.joaofzm15.fantasybasketball.entities.Game;
 import br.com.joaofzm15.fantasybasketball.entities.Player;
 import br.com.joaofzm15.fantasybasketball.respositories.GameRepository;
+import br.com.joaofzm15.fantasybasketball.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class GameService {
@@ -22,7 +23,7 @@ public class GameService {
 	
 	public Game findById(Long id) {
 		Optional<Game> obj = repository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
 	public Game insert(Game obj) {
