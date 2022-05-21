@@ -1,15 +1,44 @@
 body {
-    background-image: linear-gradient(to right, rgb(0, 27, 116) , rgb(56, 0, 0));
+    background-image: linear-gradient(to right, rgb(0, 27, 116), rgb(56, 0, 0));
 }
 
 .page_title {
     text-align: center;
-    font-size: 50px;
+    font-size: 60px;
     color: white;
 }
 
-.button {
+.page_sub_title {
     text-align: center;
     font-size: 40px;
     color: white;
+}
+
+
+.username_password_div {
+    margin-top: 10%;
+    text-align: center;
+}
+
+.username_password_div label {
+    color: aliceblue;
+    font-size: 30px;
+}
+
+.username_password_div input {
+    font-size: 25px;
+}
+
+
+.main_buttons_div {
+    margin-top: 3%;
+    text-align: center;
+}
+
+.button {
+    border: 3px solid green;
+    background-color: rgb(0, 62, 62);
+    font-size: 45px;
+    color: white;
+    text-decoration: none;
 }
