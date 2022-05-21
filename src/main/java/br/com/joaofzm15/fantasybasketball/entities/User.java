@@ -5,43 +5,40 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.Table;
 
 @Entity
-public class Team implements Serializable {
+@Table(name = "User")
+public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String name;
+	private String username;
 	
-	@OneToMany(mappedBy = "team")
-	private List<Player> players = new ArrayList<>();
+	private String password;
 	
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	@JsonIgnore
-	private User user;
-		
-	public Team() {
+	@OneToMany(mappedBy = "user")
+	private List<Team> teams = new ArrayList<>();
+	
+	public User() {
 		
 	}
 
-	public Team(Long id, String name, User user) {
+	public User(Long id, String username, String password) {
 		this.id = id;
-		this.name = name;
-		this.user = user;
+		this.username = username;
+		this.password = password;
 	}
 
 	public Long getId() {
@@ -52,24 +49,24 @@ public class Team implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public List<Player> getPlayers(){
-		return players;
-	}
-	
-	public User getUser() {
-		return user;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public List<Team> getTeams() {
+		return teams;
 	}
 
 	@Override
@@ -85,12 +82,14 @@ public class Team implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Team other = (Team) obj;
+		User other = (User) obj;
 		return Objects.equals(id, other.id);
 	}
+	
+	
+	
+	
+	
+	
 
-
-	
-	
-	
 }

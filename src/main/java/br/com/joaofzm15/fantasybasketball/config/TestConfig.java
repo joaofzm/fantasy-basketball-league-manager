@@ -10,14 +10,20 @@ import org.springframework.context.annotation.Profile;
 import br.com.joaofzm15.fantasybasketball.entities.Game;
 import br.com.joaofzm15.fantasybasketball.entities.Player;
 import br.com.joaofzm15.fantasybasketball.entities.Team;
+import br.com.joaofzm15.fantasybasketball.entities.User;
+import br.com.joaofzm15.fantasybasketball.resources.UserResource;
 import br.com.joaofzm15.fantasybasketball.respositories.GameRepository;
 import br.com.joaofzm15.fantasybasketball.respositories.PlayerRepository;
 import br.com.joaofzm15.fantasybasketball.respositories.TeamRepository;
+import br.com.joaofzm15.fantasybasketball.respositories.UserRepository;
 
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
 
+	@Autowired
+	private UserRepository userRepository;
+	
 	@Autowired
 	private TeamRepository teamRepository;
 	
@@ -29,17 +35,23 @@ public class TestConfig implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
-		Team team1 = new Team(null, "Clippers");
-		Team team2 = new Team(null, "Bucks");
-		Team team3 = new Team(null, "Warriors");
-		Team team4 = new Team(null, "Celtics");
-		teamRepository.saveAll(Arrays.asList(team1, team2, team3, team4));
 		
-		Player p1 = new Player(null, "Reggie Jackson", team1);
-		Player p2 = new Player(null, "Jrue Holiday", team2);
-		Player p3 = new Player(null, "Stephen Curry", team3);
-		Player p4 = new Player(null, "Robert Williams", team4);
+		User u1 = new User(null, "pg13", "1234");
+		User u2 = new User(null, "greekFreak", "1234");
+		User u3 = new User(null, "curry30", "1234");
+		User u4 = new User(null, "timelord", "1234");
+		userRepository.saveAll(Arrays.asList(u1, u2, u3, u4));
+
+		Team t1 = new Team(null, "Clippers", u1);
+		Team t2 = new Team(null, "Bucks", u2);
+		Team t3 = new Team(null, "Warriors", u3);
+		Team t4 = new Team(null, "Celtics", u4);
+		teamRepository.saveAll(Arrays.asList(t1, t2, t3, t4));
+		
+		Player p1 = new Player(null, "Reggie Jackson", t1);
+		Player p2 = new Player(null, "Jrue Holiday", t2);
+		Player p3 = new Player(null, "Stephen Curry", t3);
+		Player p4 = new Player(null, "Robert Williams", t4);
 		playerRepository.saveAll(Arrays.asList(p1,p2,p3,p4));
 		
 		Game g1 = new Game(null, 30, 5, 7, 2, 1, p1);
