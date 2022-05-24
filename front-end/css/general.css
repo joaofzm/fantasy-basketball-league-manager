@@ -37,6 +37,7 @@ body {
 
 .button {
     border: 3px solid green;
+    padding: 3px;
     background-color: rgb(0, 62, 62);
     font-size: 45px;
     color: white;
