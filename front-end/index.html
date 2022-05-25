@@ -11,31 +11,7 @@
 </head>
 
 <body>
-    <script type="text/javascript">
-        function get() {
-            var typedUsername = document.getElementById("usernameTextBox").value;
-            var typedPassword = document.getElementById("passwordTextBox").value;
-
-            var request = new XMLHttpRequest();
-            request.open('get', "http://localhost:8080/users/", true);
-            request.setRequestHeader('Content-Type', 'text/plain');
-            request.send();
-
-            request.onreadystatechange = function () {
-                if (request.readyState === 4) {
-                    let requestResponseText = request.responseText;
-                    let parsedData = JSON.parse(requestResponseText);
-                    for (let i = 0; i < parsedData.length; i++){
-                        if (typedUsername == parsedData[i].username && typedPassword == parsedData[i].password){
-                            alert("Welcome, "+parsedData[i].username+"!");
-                            break;
-                        }
-                        alert("Incorrect username or password!");
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="js/script.js"></script>
 
     <h1 class="page_title">TOBEDEFINED - FANTASY BASKETBALL LEAGUE MANAGER</h1>
 
@@ -47,7 +23,7 @@
     </form>
 
     <div class="main_buttons_div">
-        <a class="button" onclick="get()">LOGIN</a><br><br><br><br><br><br><br><br><br><br><br>
+        <a class="button" onclick="login()">LOGIN</a><br><br><br><br><br><br><br><br><br><br><br>
         <a class="button" href="google.com">REGISTER NEW ACCOUNT</a>
     </div>
 </body>
