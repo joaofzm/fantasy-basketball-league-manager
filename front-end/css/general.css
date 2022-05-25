@@ -36,6 +36,7 @@ body {
 }
 
 .button {
+    cursor: pointer;
     border: 3px solid green;
     padding: 3px;
     background-color: rgb(0, 62, 62);

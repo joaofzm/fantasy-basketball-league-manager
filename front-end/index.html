@@ -11,26 +11,27 @@
 </head>
 
 <body>
-    <input type="submit" value="Get" onclick="get()">
-
     <script type="text/javascript">
         function get() {
-            var request = new XMLHttpRequest();
-            var requestResponseText;
+            var typedUsername = document.getElementById("usernameTextBox").value;
+            var typedPassword = document.getElementById("passwordTextBox").value;
 
-            request.open('get', 'http://localhost:8080/users/1', true);
+            var request = new XMLHttpRequest();
+            request.open('get', "http://localhost:8080/users/", true);
             request.setRequestHeader('Content-Type', 'text/plain');
             request.send();
+
             request.onreadystatechange = function () {
                 if (request.readyState === 4) {
-                    requestResponseText = request.responseText;
-
-                    console.log(requestResponseText);
-
-                    var parsedData = JSON.parse(requestResponseText);
-
-                    console.log(parsedData.username);
-                    console.log(parsedData.password);
+                    let requestResponseText = request.responseText;
+                    let parsedData = JSON.parse(requestResponseText);
+                    for (let i = 0; i < parsedData.length; i++){
+                        if (typedUsername == parsedData[i].username && typedPassword == parsedData[i].password){
+                            alert("Welcome, "+parsedData[i].username+"!");
+                            break;
+                        }
+                        alert("Incorrect username or password!");
+                    }
                 }
             }
         }
@@ -40,13 +41,13 @@
 
     <form class="username_password_div">
         <label for="username">USERNAME</label><br><br>
-        <input type="text" id="username" name="username"><br><br><br><br>
+        <input id="usernameTextBox" type="text" id="username" name="username"><br><br><br><br>
         <label for="password">PASSWORD</label><br><br>
-        <input type="password" id="password" name="password">
+        <input id="passwordTextBox" type="password" id="password" name="password">
     </form>
 
     <div class="main_buttons_div">
-        <a class="button" href="pages/afterlogin.html">LOGIN</a><br><br><br><br><br><br><br><br><br><br><br>
+        <a class="button" onclick="get()">LOGIN</a><br><br><br><br><br><br><br><br><br><br><br>
         <a class="button" href="google.com">REGISTER NEW ACCOUNT</a>
     </div>
 </body>
