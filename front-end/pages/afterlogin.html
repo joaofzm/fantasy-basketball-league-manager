@@ -9,16 +9,18 @@
 
     <link rel="stylesheet" href="/css/general.css">
 </head>
-<body>
-    <h1 class="page_title">Welcome, Giannis!</h1>
-    <h1 class="page_sub_title">Current team: Clippers</h1>
+<body onload="loadWelcomePage()">
+    <script src="/js/script.js"></script>
+
+    <h1 id="welcome_message" class="page_title"></h1>
+    <h1 id="current_team_label" class="page_sub_title"></h1>
     <br>
     <div class="main_buttons_div">
         <a class="button" href="google.com">LEADERBOARD</a><br><br><br><br><br><br>
         <a class="button" href="google.com">ADD GAME</a><br><br><br>
         <a class="button" href="google.com">ADD PLAYER</a><br><br><br>
         <a class="button" href="google.com">INSTRUCTIONS</a><br><br><br><br><br><br><br><br>
-        <a class="button" href="/index.html">LOG OUT</a>
+        <a class="button" onclick="logOut()">LOG OUT</a>
     </div>
 </body>
 <style></style>
