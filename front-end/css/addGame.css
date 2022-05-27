@@ -1,0 +1,36 @@
+.stats_inputs_div {
+    text-align: center;
+}
+
+.stats_inputs_div label {
+    color: aliceblue;
+    font-size: 25px;
+}
+
+
+.stats_inputs_div input {
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+}
+
+
+.username_password_div select {
+    font-size: 25px;
+}
+
+.page_title {
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+
+.page_sub_title {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+
+.main_buttons_div a {
+    font-size: 35px;
+    margin: 3%;
+}

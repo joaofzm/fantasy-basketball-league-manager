@@ -12,9 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Team implements Serializable {
@@ -31,7 +30,7 @@ public class Team implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	@JsonIgnore
+	@JsonBackReference
 	private User user;
 		
 	public Team() {
