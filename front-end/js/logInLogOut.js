@@ -1,9 +1,3 @@
-function loadHomePage() {
-    currentLoggedTeamId = localStorage.getItem("currentLoggedTeamId");
-    document.getElementById("welcome_message").innerHTML = "Welcome, " + localStorage.getItem("currentlyLoggedUserUsername") + "!";
-    document.getElementById("current_team_label").innerHTML = "Owned team: " + localStorage.getItem("currentLoggedTeamName") + "!";
-}
-
 function logIn() {
     var typedUsername = document.getElementById("usernameTextBox").value;
     var typedPassword = document.getElementById("passwordTextBox").value;
@@ -42,27 +36,3 @@ function logOut() {
     window.location.href = "/index.html";
 }
 
-function addPlayer() {
-    event.preventDefault();
-
-    var typedName = document.getElementById("playerName").value;
-    
-    body = {
-        "name": typedName,
-        "team": {
-            "id": localStorage.getItem("currentLoggedTeamId")
-        }
-    }
-
-    var request = new XMLHttpRequest();
-    request.open("POST", "http://localhost:8080/players/", true);
-    request.setRequestHeader("Content-type", "application/json");
-    request.send(JSON.stringify(body));
-
-    request.onload = function () {
-        console.log(this.responseText);
-    }
-
-    alert(typedName + " added successfully!")
-    return request.responseText;
-}
