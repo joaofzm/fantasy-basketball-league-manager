@@ -1,6 +1,7 @@
 function addGame() {
     event.preventDefault();
 
+    var player = 1;
     var points = document.getElementById("pointsTextBox").value;
     var assists = document.getElementById("assistsTextBox").value;
     var rebounds = document.getElementById("reboundsTextBox").value;
@@ -14,7 +15,7 @@ function addGame() {
         "steals": steals,
         "blocks": blocks,
         "player": {
-            "id": 2
+            "id": player
         }
     }
 
@@ -31,13 +32,25 @@ function addGame() {
     return request.responseText;
 }
 
+
+
+
+
+
+
+
 function loadAddGamePage() {
     getPlayers();
 }
 
+
+
+
+
+//Get all players from currently logged user's team, as an array
 function getPlayers() {
     var request = new XMLHttpRequest();
-    request.open('get', "http://localhost:8080/players/", true);
+    request.open('get', "http://localhost:8080/teams/", true);
     request.setRequestHeader('Content-Type', 'text/plain');
     request.send();
 
@@ -46,17 +59,17 @@ function getPlayers() {
             var requestResponseText = request.responseText;
             var parsedData = JSON.parse(requestResponseText);
 
-            console.log(parsedData);
-            // for (var i = 0; i < parsedData.length; i++) {
-            //     if (typedUsername == parsedData[i].username && typedPassword == parsedData[i].password) {
-            //         localStorage.setItem("currentlyLoggedUserUsername", parsedData[i].username);
-            //         localStorage.setItem("currentlyLoggedUserId", parsedData[i].id);
-            //         localStorage.setItem("currentLoggedTeamName", parsedData[i].teams[0].name);
-            //         localStorage.setItem("currentLoggedTeamId", parsedData[i].teams[0].id);
-            //         matched = true;
-            //         window.location.href = "/pages/homepage.html";
-            //         break;
-            //     }
+            var players = [];
+
+            for (var i = 0; i < parsedData.length; i++) {
+                if (parsedData[i].id == localStorage.getItem("currentLoggedTeamId")) {
+                    for (var j = 0; j < parsedData[i].players.length; j++) {
+                        players.push(parsedData[i].players[j]);
+                    }
+                }
+            }
+            console.log(players);
+            return players;
         }
     }
 }
