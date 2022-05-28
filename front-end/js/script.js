@@ -1,5 +1,4 @@
-
-function loadWelcomePage() {
+function loadHomePage() {
     currentLoggedTeamId = localStorage.getItem("currentLoggedTeamId");
     document.getElementById("welcome_message").innerHTML = "Welcome, " + localStorage.getItem("currentlyLoggedUserUsername") + "!";
     document.getElementById("current_team_label").innerHTML = "Owned team: " + localStorage.getItem("currentLoggedTeamName") + "!";
@@ -44,14 +43,14 @@ function logOut() {
 }
 
 function addPlayer() {
-    //Mocked implementation
-    //Currently adding a fixed player name and ID
     event.preventDefault();
 
+    var typedName = document.getElementById("playerName").value;
+    
     body = {
-        "name": "Paul George",
+        "name": typedName,
         "team": {
-            "id": 1
+            "id": localStorage.getItem("currentLoggedTeamId")
         }
     }
 
@@ -64,5 +63,6 @@ function addPlayer() {
         console.log(this.responseText);
     }
 
+    alert(typedName + " added successfully!")
     return request.responseText;
 }
