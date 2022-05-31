@@ -14,14 +14,6 @@ body {
     color: white;
 }
 
-.paragraph {
-    color: white;
-    font-size: 30px;
-    margin-left: 5%;
-    margin-right: 5%;
-    text-align: center;
-}
-
 .username_password_div {
     margin-top: 7%;
     text-align: center;
