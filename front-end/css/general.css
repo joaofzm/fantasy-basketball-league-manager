@@ -14,6 +14,8 @@ body {
     color: white;
 }
 
+
+
 .username_password_div {
     margin-top: 7%;
     text-align: center;
@@ -27,11 +29,6 @@ body {
 .username_password_div input {
     font-size: 25px;
 }
-
-.stats_inputs_div select {
-    font-size: 25px;
-}
-
 
 .main_buttons_div {
     margin-top: 3%;

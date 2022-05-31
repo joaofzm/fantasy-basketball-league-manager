@@ -33,7 +33,7 @@ function loadLeaderboardPage() {
                 totalEverything += totalBlocks * 2.5;
                 var div = document.getElementById('leaderboard_div');
                 var p = document.createElement("p");
-                p.innerHTML = teamName + " - "+totalEverything+" pts   |   Owner: "+ownerName;
+                p.innerHTML = teamName + " - "+totalEverything+" fantasy points   |   Owner: "+ownerName;
                 div.append(p);
 
             }
