@@ -24,6 +24,8 @@ function loadAddGamePage() {
                 var option = document.createElement('option');
                 option.value = players[i].name;
                 option.innerHTML = players[i].name;
+                playersNamesArrayGlobal.push(players[i].name);
+                playersIdsArrayGlobal.push(players[i].id);
                 document.getElementById('playersSelect').appendChild(option);
             }
 
@@ -32,13 +34,17 @@ function loadAddGamePage() {
     }
 }
 
+//Players are added at the same time on both lists when the page loads.
+//it's possible to know a player ID by looking at the number
+//at it's index on other array, and vice versa.
+var playersNamesArrayGlobal = [];
+var playersIdsArrayGlobal = [];
+
 function addGame() {
     event.preventDefault();
 
-    //Player ID is still mocked, TODO: Get right player id from select
-    var sel = document.getElementById("playersSelect").value;
-    
-    var player = 1;
+    var player = playersIdsArrayGlobal[playersNamesArrayGlobal.indexOf(document.getElementById("playersSelect").value)];
+    console.log(player);
     var points = document.getElementById("pointsTextBox").value;
     var assists = document.getElementById("assistsTextBox").value;
     var rebounds = document.getElementById("reboundsTextBox").value;
