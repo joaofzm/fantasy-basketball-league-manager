@@ -13,20 +13,25 @@
 </head>
 
 <body>
+    <script src="/js/newAccount.js"></script>
+
+
     <h1 class="page_title">TOBEDEFINED - FANTASY BASKETBALL LEAGUE MANAGER</h1>
     <h1 id="current_team_label" class="page_sub_title">REGISTER NEW ACCOUNT</h1>
 
     <form class="username_password_div">
         <label for="username">USERNAME</label><br><br>
         <input id="usernameTextBox" type="text" id="username" name="username"><br><br><br><br>
+
+        <label for="teamName">TEAM NAME</label><br><br>
+        <input id="teamNameTextBox" type="text" id="teamName" name="teamName"><br><br><br><br>
+
         <label for="password">PASSWORD</label><br><br>
-        <input id="passwordTextBox" type="password" id="password" name="password"><br><br><br><br>
-        <label for="password">TEAM NAME</label><br><br>
         <input id="passwordTextBox" type="password" id="password" name="password">
     </form>
 
     <div class="main_buttons_div">
-        <a class="button" onclick="logIn()">SIGN UP</a><br><br><br><br><br><br>
+        <a class="button" onclick="register()">SIGN UP</a><br><br><br><br><br><br>
         <a class="button" href="/index.html">RETURN</a>
     </div>
 </body>

@@ -1,7 +1,7 @@
 function addPlayer() {
     event.preventDefault();
 
-    var typedName = document.getElementById("playerName").value;
+    var typedName = document.getElementById("playerNameTextBox").value;
     
     body = {
         "name": typedName,
