@@ -1,0 +1,10 @@
+.view_games_div {
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+}
+
+.view_games_div p {
+    font-size: 2rem;
+    color: white;
+}
