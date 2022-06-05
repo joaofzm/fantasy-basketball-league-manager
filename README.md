@@ -20,4 +20,4 @@
 
 - Front-end feito com HTML, CSS e JavaScript.
 
-- Dados armazenados no PostgreeSql.
+- Dados armazenados no PostgreSql.
