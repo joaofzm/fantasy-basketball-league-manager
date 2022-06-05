@@ -1,6 +1,6 @@
 # Fantasy Basketball League Manager
 
-Tool for managing a basketball fantasy league.
+**Tool for managing a basketball fantasy league.
 
 - Stores and show the stats from the players the user registered on his team, as well as calculates and shows on a leaderboard the teams with the most points on the league.
 
@@ -12,7 +12,7 @@ Tool for managing a basketball fantasy league.
 
 <hr>
 
-Ferramenta para gerenciar uma liga de basquete fantasy.
+**Ferramenta para gerenciar uma liga de basquete fantasy.
 
 - Armazena e exibe as estatísticas dos jogadores registrados pelo usuário no seu time, além de calcular e mostrar em uma lista os times com as melhores pontuações da liga.
 
