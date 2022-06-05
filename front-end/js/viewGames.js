@@ -68,18 +68,16 @@ function loadViewGamesPage() {
 
 }
 
-
-
 function reloadPage() {
 
-    if (document.getElementById("playersSelect").value=="All Players"){
+    if (document.getElementById("playersSelect").value == "All Players") {
         loadViewGamesPage();
         return;
     }
 
     //Clean div
     document.getElementById("view_games_div").innerHTML = "";
-    
+
     //Value for the options in select was previously set to it's player corresponding id.
     var selectedPlayerId = document.getElementById("playersSelect").value;
 
