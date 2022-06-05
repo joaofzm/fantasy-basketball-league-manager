@@ -1,10 +1,14 @@
 # Fantasy Basketball League Manager
 
 -Tool for managing a basketball fantasy league.
+
 -Stores and show the stats from the players the user registered on his team, as well as calculates and shows on a leaderboard the teams with the most points on the league.
 
+
 -Back-end programmed on Java using the SpringBoot framework.
+
 -Front-end made with HTML, CSS and JavaScript.
+
 -Data stored on PostgreSql.
 
 <hr>
