@@ -11,7 +11,7 @@ function addPlayer() {
     }
 
     var request = new XMLHttpRequest();
-    request.open("POST", "http://localhost:8080/players/", true);
+    request.open("POST", "https://fantasy-basketball-league-mgr.herokuapp.com/players/", true);
     request.setRequestHeader("Content-type", "application/json");
     request.send(JSON.stringify(body));
 

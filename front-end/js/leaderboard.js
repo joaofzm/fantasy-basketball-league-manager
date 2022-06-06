@@ -1,6 +1,6 @@
 function loadLeaderboardPage() {
     var request = new XMLHttpRequest();
-    request.open('get', "http://localhost:8080/users/", true);
+    request.open('get', "https://fantasy-basketball-league-mgr.herokuapp.com/users/", true);
     request.setRequestHeader('Content-Type', 'text/plain');
     request.send();
     request.onreadystatechange = function () {

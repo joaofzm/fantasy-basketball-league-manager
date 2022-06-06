@@ -2,7 +2,7 @@ function loadViewGamesPage() {
 
     //First request loads select with all player names
     var fillSelectRequest = new XMLHttpRequest();
-    fillSelectRequest.open('get', "http://localhost:8080/teams/", true);
+    fillSelectRequest.open('get', "https://fantasy-basketball-league-mgr.herokuapp.com/teams/", true);
     fillSelectRequest.setRequestHeader('Content-Type', 'text/plain');
     fillSelectRequest.send();
     fillSelectRequest.onreadystatechange = function () {
@@ -37,7 +37,7 @@ function loadViewGamesPage() {
 
     //Second request prints data
     var printAllPlayersGamesRequest = new XMLHttpRequest();
-    printAllPlayersGamesRequest.open('get', "http://localhost:8080/teams/" + localStorage.getItem("currentLoggedTeamId"), true);
+    printAllPlayersGamesRequest.open('get', "https://fantasy-basketball-league-mgr.herokuapp.com/teams/" + localStorage.getItem("currentLoggedTeamId"), true);
     printAllPlayersGamesRequest.setRequestHeader('Content-Type', 'text/plain');
     printAllPlayersGamesRequest.send();
     printAllPlayersGamesRequest.onreadystatechange = function () {
@@ -82,7 +82,7 @@ function reloadPage() {
     var selectedPlayerId = document.getElementById("playersSelect").value;
 
     var getAllGamesFromSelectedPlayerRequest = new XMLHttpRequest();
-    getAllGamesFromSelectedPlayerRequest.open('get', "http://localhost:8080/players/" + selectedPlayerId, true);
+    getAllGamesFromSelectedPlayerRequest.open('get', "https://fantasy-basketball-league-mgr.herokuapp.com/players/" + selectedPlayerId, true);
     getAllGamesFromSelectedPlayerRequest.setRequestHeader('Content-Type', 'text/plain');
     getAllGamesFromSelectedPlayerRequest.send();
     getAllGamesFromSelectedPlayerRequest.onreadystatechange = function () {

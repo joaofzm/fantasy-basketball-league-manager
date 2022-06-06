@@ -1,7 +1,7 @@
 function loadAddGamePage() {
 //Get all players from currently logged user's team, as an array
     var request = new XMLHttpRequest();
-    request.open('get', "http://localhost:8080/teams/", true);
+    request.open('get', "https://fantasy-basketball-league-mgr.herokuapp.com/teams/", true);
     request.setRequestHeader('Content-Type', 'text/plain');
     request.send();
     request.onreadystatechange = function () {
@@ -63,7 +63,7 @@ function addGame() {
     }
 
     var request = new XMLHttpRequest();
-    request.open("POST", "http://localhost:8080/games/", true);
+    request.open("POST", "https://fantasy-basketball-league-mgr.herokuapp.com/games/", true);
     request.setRequestHeader("Content-type", "application/json");
     request.send(JSON.stringify(body));
 

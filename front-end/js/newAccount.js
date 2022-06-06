@@ -6,7 +6,7 @@ function register() {
     var typedPassword = document.getElementById("passwordTextBox").value;
 
     var getAllUsersRequest = new XMLHttpRequest();
-    getAllUsersRequest.open('get', "http://localhost:8080/users/", true);
+    getAllUsersRequest.open('get', "https://fantasy-basketball-league-mgr.herokuapp.com/users/", true);
     getAllUsersRequest.setRequestHeader('Content-Type', 'text/plain');
     getAllUsersRequest.send();
 
@@ -29,7 +29,7 @@ function register() {
                 }
 
                 var postUserRequest = new XMLHttpRequest();
-                postUserRequest.open("POST", "http://localhost:8080/users/", true);
+                postUserRequest.open("POST", "https://fantasy-basketball-league-mgr.herokuapp.com/users/", true);
                 postUserRequest.setRequestHeader("Content-type", "application/json");
                 postUserRequest.send(JSON.stringify(postUserBody));
 
@@ -46,7 +46,7 @@ function register() {
                     }
 
                     var postTeamRequest = new XMLHttpRequest();
-                    postTeamRequest.open("POST", "http://localhost:8080/teams/", true);
+                    postTeamRequest.open("POST", "https://fantasy-basketball-league-mgr.herokuapp.com/teams/", true);
                     postTeamRequest.setRequestHeader("Content-type", "application/json");
                     postTeamRequest.send(JSON.stringify(postTeamBody));
                     postTeamRequest.onload = function () {
