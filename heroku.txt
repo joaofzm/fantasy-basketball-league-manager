@@ -1,0 +1,11 @@
+postgres://
+
+username: cenffbxecunlnp
+
+password: 9e24ff03c8d77139d5b2e539c3f7802073002e30b50c4c0e84940888f13743c5
+
+host: ec2-34-231-221-151.compute-1.amazonaws.com
+
+port: 5432
+
+maintence database: d4bccoerj9vsf4
