@@ -20,7 +20,7 @@ function logIn() {
                     localStorage.setItem("currentLoggedTeamName", parsedData[i].teams[0].name);
                     localStorage.setItem("currentLoggedTeamId", parsedData[i].teams[0].id);
                     matched = true;
-                    window.location.href = "/pages/homepage.html";
+                    window.location.href = "/front-end/pages/homepage.html";
                     break;
                 }
             }
